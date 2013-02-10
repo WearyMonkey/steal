@@ -1582,7 +1582,7 @@
 					if ( support.error && error && src.protocol !== "file" ) {
 						script.onerror = error;
 					}
-					script.src = "" + src;
+					script.src = addSuffix("" + src);  //ROAM7 Added to re-enable suffix for scripts
 					//script.src = options.src = addSuffix(options.src);
 					//script.async = false;
 					script.onSuccess = success;

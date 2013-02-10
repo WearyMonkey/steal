@@ -59,9 +59,9 @@ steal('steal','steal/build/open','steal/build/apps','steal/get/json.js',function
 					}).join('-')
 					if(!usedNames[shortened]){
 						usedNames[shortened] = true;
-					return appNamesToName[expanded] = to + "/packages/"+shortened;
+					return appNamesToName[expanded] = to + "packages/"+shortened;; //ROAM7 removed slash
 					} else {
-						return appNamesToName[expanded] = to + "/packages/"+expanded.replace(/\//g,'_') ;
+						return appNamesToName[expanded] = to + "packages/"+expanded.replace(/\//g,'_') ;; //ROAM7 removed slash
 					}
 				},
 				filterCode = function(code, type) {
@@ -71,7 +71,7 @@ steal('steal','steal/build/open','steal/build/apps','steal/get/json.js',function
 				};
 			
 			// make the packages folder
-			s.URI(to+"/packages").mkdirs();
+			s.URI(to+"packages").mkdirs(); //ROAM7 removed slash
 			
 			// get packages loaded, packages need to be rootSrc style url
 			var packs = opener.steal.packages(),
