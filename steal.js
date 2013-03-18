@@ -1582,7 +1582,14 @@
 					if ( support.error && error && src.protocol !== "file" ) {
 						script.onerror = error;
 					}
-					script.src = addSuffix("" + src);  //ROAM7 Added to re-enable suffix for scripts
+
+                    src = "" + src;
+
+                    if (stealConfig.crossOrigin && src.indexOf(stealConfig.root.toString()) === 0) {
+                        script.crossOrigin = "anonymous";
+                    }
+
+					script.src = addSuffix(src);  //ROAM7 Added to re-enable suffix for scripts
 					//script.src = options.src = addSuffix(options.src);
 					//script.async = false;
 					script.onSuccess = success;
